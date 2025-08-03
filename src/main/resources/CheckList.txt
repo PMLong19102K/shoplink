@@ -1,0 +1,30 @@
+Trang chủ:
+- Header: Logo + menu
+
+- Banner giới thiệu (nếu có)
+
+- Top sản phẩm nổi bật (card có ảnh + tên + nút “Mua ngay”)
+
+- Các bài viết nổi bật
+
+- Footer: thông tin, liên kết
+Trang sản phẩm:
+- Tên sản phẩm
+
+- Hình ảnh
+
+- Mô tả ngắn
+
+- Nút "Xem trên Amazon / Shopee / Cam.vn"
+
+- Affiliate link
+
+Trang blog / bài viết:
+Tên bài viết
+
+Nội dung mô tả chi tiết
+
+Gợi ý sản phẩm liên quan
+
+Tag / category
+

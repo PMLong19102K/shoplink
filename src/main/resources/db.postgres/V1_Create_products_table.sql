@@ -1,0 +1,11 @@
+-- CREATE TABLE products
+-- (
+--     id                 int8         NOT NULL PRIMARY KEY,
+--     name               VARCHAR(255) NOT NULL,
+--     category           VARCHAR(50),
+--     price              INT(10),
+--     description        VARCHAR(500),
+--     link_product       VARCHAR(500) NOT NULL,
+--     link_image_product VARCHAR(500) NOT NULL
+-- );
+CREATE SEQUENCE seq_product START WITH 1 INCREMENT BY 1;
