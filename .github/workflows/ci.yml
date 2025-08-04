@@ -1,0 +1,44 @@
+name: CI - Build and SonarQube
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  workflow_dispatch:
+
+jobs:
+  build-and-analyze:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Cache Maven dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-maven
+
+      - name: Build with Maven
+        run: mvn clean verify -B
+
+      - name: Run SonarQube Analysis
+        uses: SonarSource/sonarqube-scan-action@v2.0.0
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        with:
+          args: >
+            -Dsonar.projectKey=${{ secrets.PROJECT_KEY }}
+            -Dsonar.projectName=YourProjectName
+            -Dsonar.sources=src
+            -Dsonar.java.binaries=target
